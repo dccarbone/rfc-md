@@ -4,7 +4,8 @@ review_status: draft
 design_review:
 comments_until:
 review_until:
-required_approvers: []
+required_approvers:
+  - 1001Josias
 ---
 
 # Test RFC Checks and Validation Script

@@ -380,8 +380,7 @@ The frontmatter lists required GitHub users:
 
 ```yaml
 required_approvers:
-  - reviewer-one
-  - reviewer-two
+  - 1001Josias
 ```
 
 The GitHub PR review proves who approved, when they approved, and which version they approved.
