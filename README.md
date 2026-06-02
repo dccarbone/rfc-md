@@ -9,6 +9,8 @@ when they follow a predictable structure.
 
 The full decision record is available in [docs/qna.md](docs/qna.md).
 
+![RFC Markdown Workflow](docs/assets/rfc-markdown-workflow.png)
+
 ## Core idea
 
 - Authors focus on the proposal, not document design.
