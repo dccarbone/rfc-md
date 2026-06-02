@@ -12,7 +12,7 @@ SPEC.loader.exec_module(validate_rfc)
 class ValidateRfcTest(unittest.TestCase):
     def test_frontmatter_uses_capitalized_title_field(self):
         body = """---
-Title: Example RFC
+Title: RFC - IAM Authoritative Source
 review_status: draft
 design_review:
 comments_until:
@@ -20,7 +20,7 @@ review_until:
 required_approvers: []
 ---
 
-# Example RFC
+# RFC - IAM Authoritative Source
 """
 
         data, markdown = validate_rfc.split_frontmatter(body)

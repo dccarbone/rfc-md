@@ -32,7 +32,7 @@ Minimum fields:
 
 ```yaml
 ---
-Title: Application Logs Standardization
+Title: Architectural Decoupling between Terminator and inspections-service
 review_status: draft
 design_review: tech_platform
 comments_until:
@@ -72,7 +72,7 @@ Before claiming changes are done, run:
 
 ```bash
 python3 -m unittest tests/test_validate_rfc.py
-python3 scripts/validate_rfc.py rfcs/2026/application-logs-standardization/rfc.md
+python3 scripts/validate_rfc.py rfcs/2026/architectural-decoupling-between-terminator-and-inspections-service/rfc.md
 python3 -c "import ast, pathlib; ast.parse(pathlib.Path('scripts/validate_rfc.py').read_text()); print('syntax ok')"
 ```
 

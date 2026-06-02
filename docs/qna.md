@@ -105,7 +105,7 @@ rfcs/
     assets/
       .gitkeep
   2026/
-    application-logs-standardization/
+    architectural-decoupling-between-terminator-and-inspections-service/
       rfc.md
       assets/
         optional-image.png
@@ -147,18 +147,18 @@ RFC folders should be slugs derived from the title:
 Good examples:
 
 ```txt
-rfcs/2026/application-logs-standardization/rfc.md
-rfcs/2026/service-ownership-model/rfc.md
-rfcs/2026/bluelink-trip-attribution/rfc.md
+rfcs/2026/architectural-decoupling-between-terminator-and-inspections-service/rfc.md
+rfcs/2026/iam-authoritative-source/rfc.md
+rfcs/2026/one-app-experience/rfc.md
 ```
 
 Bad examples:
 
 ```txt
-rfcs/2026/rfc-application-logs-standardization/rfc.md
-rfcs/2026/Application Logs Standardization/rfc.md
-rfcs/2026/application_logs_standardization/rfc.md
-rfcs/2026/001-application-logs-standardization/rfc.md
+rfcs/2026/rfc-architectural-decoupling-between-terminator-and-inspections-service/rfc.md
+rfcs/2026/Architectural Decoupling between Terminator and inspections-service/rfc.md
+rfcs/2026/iam_authoritative_source/rfc.md
+rfcs/2026/001-architectural-decoupling-between-terminator-and-inspections-service/rfc.md
 ```
 
 ## 15a. What naming convention should RFC branches and PR titles use?
@@ -172,13 +172,13 @@ rfc/<slug>
 Example:
 
 ```txt
-rfc/application-logs-standardization
+rfc/architectural-decoupling-between-terminator-and-inspections-service
 ```
 
 RFC PR titles should use:
 
 ```txt
-RFC: Application Logs Standardization
+RFC: Architectural Decoupling between Terminator and inspections-service
 ```
 
 Prefer `RFC: <Title>` over `(rfc): <title>`. The `RFC:` prefix is easier to scan in GitHub PR lists and avoids mixing RFC workflow with commit-message conventions.
@@ -227,7 +227,7 @@ The minimum frontmatter should be:
 
 ```yaml
 ---
-Title: Application Logs Standardization
+Title: Architectural Decoupling between Terminator and inspections-service
 review_status: draft
 design_review: tech_platform
 comments_until:

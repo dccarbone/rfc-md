@@ -11,7 +11,7 @@ rfcs/<year>/<slug>/rfc.md
 Example:
 
 ```txt
-rfcs/2026/application-logs-standardization/rfc.md
+rfcs/2026/architectural-decoupling-between-terminator-and-inspections-service/rfc.md
 ```
 
 Use `rfcs/_template/rfc.md` when creating a new RFC.

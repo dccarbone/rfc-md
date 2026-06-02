@@ -28,7 +28,7 @@ rfcs/
     assets/
       .gitkeep
   2026/
-    application-logs-standardization/
+    architectural-decoupling-between-terminator-and-inspections-service/
       rfc.md
       assets/
 ```
@@ -59,13 +59,13 @@ rfc/<slug>
 Example:
 
 ```txt
-rfc/application-logs-standardization
+rfc/architectural-decoupling-between-terminator-and-inspections-service
 ```
 
 Use a human-readable PR title:
 
 ```txt
-RFC: Application Logs Standardization
+RFC: Architectural Decoupling between Terminator and inspections-service
 ```
 
 Prefer `RFC: <Title>` over `(rfc): <title>`. The `RFC:` prefix is easier to scan
@@ -77,7 +77,7 @@ Minimum frontmatter:
 
 ```yaml
 ---
-Title: Application Logs Standardization
+Title: Architectural Decoupling between Terminator and inspections-service
 review_status: draft
 design_review: tech_platform
 comments_until:

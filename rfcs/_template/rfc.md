@@ -1,5 +1,5 @@
 ---
-Title: RFC Title
+Title: [RFC Title]
 review_status: draft
 design_review:
 comments_until:
@@ -7,7 +7,7 @@ review_until:
 required_approvers: []
 ---
 
-# RFC Title
+# [RFC Title]
 
 ## Overview
 

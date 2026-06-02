@@ -1,5 +1,5 @@
 ---
-Title: Application Logs Standardization
+Title: Architectural Decoupling between Terminator and inspections-service
 review_status: draft
 design_review: tech_platform
 comments_until:
@@ -7,7 +7,7 @@ review_until:
 required_approvers: []
 ---
 
-# Application Logs Standardization
+# Architectural Decoupling between Terminator and inspections-service
 
 ## Overview
 
@@ -15,9 +15,9 @@ This example RFC demonstrates the proposed Markdown workflow. It is intentionall
 small and exists to validate structure, frontmatter, rendering, and pull request
 review mechanics.
 
-The real proposal would describe how application logs should be standardized
-across services, including format, required fields, ownership, rollout, and
-operational impact.
+The real proposal would describe how Terminator and inspections-service should
+be decoupled, including service boundaries, integration contracts, ownership,
+rollout, and operational impact.
 
 ## Goals & Non-Goals
 
@@ -29,7 +29,7 @@ operational impact.
 
 ### Non-Goals
 
-- Define a real production logging standard.
+- Define a real production decoupling plan.
 - Replace Google Docs globally.
 - Build a custom editor UI.
 
@@ -49,7 +49,7 @@ Each RFC lives at `rfcs/<year>/<slug>/rfc.md`.
 The frontmatter is the source of truth for automation:
 
 ```yaml
-Title: Application Logs Standardization
+Title: Architectural Decoupling between Terminator and inspections-service
 review_status: draft
 design_review: tech_platform
 comments_until:
