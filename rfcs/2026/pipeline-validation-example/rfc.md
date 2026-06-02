@@ -1,8 +1,8 @@
 ---
 Title: Pipeline Validation Example
-review_status: draft
-design_review:
-comments_until:
+review_status: accepting_comments
+design_review: platform
+comments_until: "2026-06-09"
 review_until:
 required_approvers:
   - 1001Josias
