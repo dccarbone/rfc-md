@@ -7,6 +7,8 @@ The goal is not to replace Google Docs by default. The goal is to validate
 whether engineering RFCs can become easier to write, review, approve, and index
 when they follow a predictable structure.
 
+The full decision record is available in [docs/qna.md](docs/qna.md).
+
 ## Core idea
 
 - Authors focus on the proposal, not document design.

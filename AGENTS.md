@@ -101,8 +101,9 @@ Do not add these without an explicit decision:
 
 ## Documentation
 
-Keep `README.md`, `rfcs/README.md`, `rfcs/_template/rfc.md`, and
-`.github/PULL_REQUEST_TEMPLATE/rfc.md` aligned when workflow rules change.
+Keep `README.md`, `docs/qna.md`, `rfcs/README.md`,
+`rfcs/_template/rfc.md`, and `.github/PULL_REQUEST_TEMPLATE/rfc.md` aligned
+when workflow rules change.
 
 `rfcs/README.md` explains folder convention only. It must not become a manual
 index. Backstage should own index/status presentation.
