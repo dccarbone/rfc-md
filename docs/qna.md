@@ -322,18 +322,21 @@ For `accepting_comments`:
 
 - `design_review` required;
 - `comments_until` required and valid;
-- minimum body sections exist.
+- minimum body sections exist;
+- if the PR is ready to merge and `required_approvers` is set, those approvers
+  must approve through GitHub Review.
 
 For `in_review`:
 
 - `review_until` required and valid;
 - `required_approvers` not empty;
 - PR must not be Draft;
+- required approvers must approve before merge;
 - minimum body sections are complete enough for review.
 
 For `closed`:
 
-- approvals must be complete if the PR is being merged;
+- approvals must be complete before merge;
 - merge means accepted;
 - close without merge means rejected or withdrawn.
 
