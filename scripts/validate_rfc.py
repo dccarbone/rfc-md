@@ -126,9 +126,9 @@ def validate_status_requirements(data: dict, body: str) -> list[str]:
     if status not in ALLOWED_STATUSES:
         raise ValidationError(f"review_status must be one of: {', '.join(sorted(ALLOWED_STATUSES))}")
 
-    require_field(data, "title")
-    if not isinstance(data["title"], str):
-        raise ValidationError("title must be a string")
+    require_field(data, "Title")
+    if not isinstance(data["Title"], str):
+        raise ValidationError("Title must be a string")
 
     approvers = validate_approvers(data)
 
@@ -220,7 +220,7 @@ def validate_file(path: str) -> list[str]:
 
     text = Path(path).read_text()
     data, body = split_frontmatter(text)
-    title = data.get("title")
+    title = data.get("Title")
     validate_h1(body, title)
     return validate_status_requirements(data, body)
 

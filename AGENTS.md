@@ -32,7 +32,7 @@ Minimum fields:
 
 ```yaml
 ---
-title: Application Logs Standardization
+Title: Application Logs Standardization
 review_status: draft
 design_review: tech_platform
 comments_until:
@@ -71,6 +71,7 @@ The validation script is `scripts/validate_rfc.py`.
 Before claiming changes are done, run:
 
 ```bash
+python3 -m unittest tests/test_validate_rfc.py
 python3 scripts/validate_rfc.py rfcs/2026/application-logs-standardization/rfc.md
 python3 -c "import ast, pathlib; ast.parse(pathlib.Path('scripts/validate_rfc.py').read_text()); print('syntax ok')"
 ```

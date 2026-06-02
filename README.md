@@ -75,7 +75,7 @@ Minimum frontmatter:
 
 ```yaml
 ---
-title: Application Logs Standardization
+Title: Application Logs Standardization
 review_status: draft
 design_review: tech_platform
 comments_until:
@@ -158,7 +158,7 @@ Backstage should be the read/index surface, not the review surface.
 
 Backstage can later read frontmatter to show:
 
-- title;
+- Title;
 - status;
 - design review;
 - comments deadline;

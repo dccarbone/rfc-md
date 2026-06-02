@@ -1,5 +1,5 @@
 ---
-title: Application Logs Standardization
+Title: Application Logs Standardization
 review_status: draft
 design_review: tech_platform
 comments_until:
@@ -49,7 +49,7 @@ Each RFC lives at `rfcs/<year>/<slug>/rfc.md`.
 The frontmatter is the source of truth for automation:
 
 ```yaml
-title: Application Logs Standardization
+Title: Application Logs Standardization
 review_status: draft
 design_review: tech_platform
 comments_until:
