@@ -45,6 +45,30 @@ Rules:
 - One PR should create or update one RFC.
 - `assets/` is optional.
 
+## Branch and PR naming
+
+Use an RFC-specific branch prefix so RFC work is easy to distinguish from other
+repository changes:
+
+```txt
+rfc/<slug>
+```
+
+Example:
+
+```txt
+rfc/application-logs-standardization
+```
+
+Use a human-readable PR title:
+
+```txt
+RFC: Application Logs Standardization
+```
+
+Prefer `RFC: <Title>` over `(rfc): <title>`. The `RFC:` prefix is easier to scan
+in GitHub lists and avoids mixing RFC workflow with commit-message conventions.
+
 ## Frontmatter
 
 Minimum frontmatter:
@@ -80,13 +104,14 @@ These map to the current Google Docs status model:
 
 1. Copy `rfcs/_template/rfc.md` to `rfcs/<year>/<slug>/rfc.md`.
 2. Fill the frontmatter.
-3. Open a Draft PR.
-4. Keep `review_status: draft` while shaping the RFC.
-5. Move to `accepting_comments` when broad feedback is wanted.
-6. Move to `in_review` when the RFC is ready for formal approval.
-7. Required approvers approve through GitHub Review.
-8. Move to `closed` when the review cycle is complete.
-9. Merge means accepted. Close without merge means rejected or withdrawn.
+3. Create a branch named `rfc/<slug>`.
+4. Open a Draft PR titled `RFC: <Title>`.
+5. Keep `review_status: draft` while shaping the RFC.
+6. Move to `accepting_comments` when broad feedback is wanted.
+7. Move to `in_review` when the RFC is ready for formal approval.
+8. Required approvers approve through GitHub Review.
+9. Move to `closed` when the review cycle is complete.
+10. Merge means accepted. Close without merge means rejected or withdrawn.
 
 The author controls `review_status`. GitHub Review proves approval.
 

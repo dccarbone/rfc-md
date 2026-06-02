@@ -1,6 +1,8 @@
 ## RFC
 
 - RFC path:
+- Branch: `rfc/<slug>`
+- PR title: `RFC: <Title>`
 - Review status:
 - Design review:
 - Comments until:
@@ -10,6 +12,8 @@
 ## Checklist
 
 - [ ] RFC lives under `rfcs/<year>/<slug>/rfc.md`
+- [ ] Branch is named `rfc/<slug>`
+- [ ] PR title starts with `RFC: `
 - [ ] Frontmatter is filled with the minimum fields
 - [ ] PR is Draft while `review_status: draft`
 - [ ] `comments_until` is set before `review_status: accepting_comments`
