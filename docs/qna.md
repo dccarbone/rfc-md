@@ -528,6 +528,10 @@ GitHub uploads them as attachments and inserts URLs such as:
 
 For internal/private repositories, these attachments follow repository access. Only people with access to the repo can view them.
 
+Backstage image rendering still needs validation. Backstage may not be able to
+access GitHub attachment URLs, and it probably will not have permission to
+download private images by default.
+
 ## 48. Should `assets/` be required?
 
 No.
@@ -553,6 +557,10 @@ Use `assets/` when an image or diagram:
 - is part of a generated diagram workflow.
 
 For screenshots or lightweight illustrations, GitHub attachments are acceptable.
+
+For RFCs that must render reliably outside GitHub, prefer `assets/` or another
+image hosting path that the rendering surface can access. The exact Backstage
+approach is intentionally unresolved until the workflow is validated.
 
 ## 51. How should a new RFC be created?
 

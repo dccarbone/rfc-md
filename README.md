@@ -134,6 +134,11 @@ Only people with repo access can view them.
 Use `assets/` when an image or diagram needs to be versioned with the repo,
 reused outside GitHub, or maintained locally.
 
+Backstage image rendering still needs validation. If Backstage cannot access
+GitHub attachments, or does not have permission to download private images, RFCs
+that need to render outside GitHub may need versioned files under `assets/` or a
+separate image hosting path.
+
 ## Validation
 
 The GitHub Action validates only RFCs changed in the current PR.
