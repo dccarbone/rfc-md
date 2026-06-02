@@ -64,16 +64,31 @@ required_approvers: []
                     [],
                 )
 
-    def test_ready_pr_can_accept_comments(self):
+    def test_ready_pr_with_approvers_requires_approval(self):
         with patch.object(
             validate_rfc,
             "event_payload",
             return_value={"pull_request": {"draft": False}},
-        ):
+        ), patch.object(validate_rfc, "validate_github_approvals") as validate_approvals:
             validate_rfc.validate_pr_merge_gate(
                 {"review_status": "accepting_comments"},
-                [],
+                ["1001Josias"],
             )
+
+        validate_approvals.assert_called_once_with(["1001Josias"])
+
+    def test_draft_pr_accepting_comments_does_not_require_approval_yet(self):
+        with patch.object(
+            validate_rfc,
+            "event_payload",
+            return_value={"pull_request": {"draft": True}},
+        ), patch.object(validate_rfc, "validate_github_approvals") as validate_approvals:
+            validate_rfc.validate_pr_merge_gate(
+                {"review_status": "accepting_comments"},
+                ["1001Josias"],
+            )
+
+        validate_approvals.assert_not_called()
 
     def test_closed_rfc_cannot_remain_draft_pr(self):
         with patch.object(

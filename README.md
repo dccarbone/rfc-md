@@ -118,6 +118,8 @@ These map to the current Google Docs status model:
 10. Merge means accepted. Close without merge means rejected or withdrawn.
 
 The author controls `review_status`. GitHub Review proves approval.
+If `required_approvers` is set, those users must approve the PR before it can be
+merged.
 
 ## Images
 
