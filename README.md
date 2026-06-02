@@ -30,7 +30,7 @@ rfcs/
     assets/
       .gitkeep
   2026/
-    architectural-decoupling-between-terminator-and-inspections-service/
+    service-boundary-example/
       rfc.md
       assets/
 ```
@@ -61,13 +61,13 @@ rfc/<slug>
 Example:
 
 ```txt
-rfc/architectural-decoupling-between-terminator-and-inspections-service
+rfc/service-boundary-example
 ```
 
 Use a human-readable PR title:
 
 ```txt
-RFC: Architectural Decoupling between Terminator and inspections-service
+RFC: Service Boundary Example
 ```
 
 Prefer `RFC: <Title>` over `(rfc): <title>`. The `RFC:` prefix is easier to scan
@@ -79,9 +79,9 @@ Minimum frontmatter:
 
 ```yaml
 ---
-Title: Architectural Decoupling between Terminator and inspections-service
+Title: Service Boundary Example
 review_status: draft
-design_review: tech_platform
+design_review: platform
 comments_until:
 review_until:
 required_approvers: []
@@ -133,6 +133,11 @@ Only people with repo access can view them.
 
 Use `assets/` when an image or diagram needs to be versioned with the repo,
 reused outside GitHub, or maintained locally.
+
+Backstage image rendering still needs validation. If Backstage cannot access
+GitHub attachments, or does not have permission to download private images, RFCs
+that need to render outside GitHub may need versioned files under `assets/` or a
+separate image hosting path.
 
 ## Validation
 

@@ -26,8 +26,8 @@ being proposed from this section alone.
 
 ## Background & Motivation
 
-Describe the current state, why a change is needed, and any important internal
-terms or context.
+Describe the current state, why a change is needed, and any important
+domain-specific terms or context.
 
 ## Detailed Proposal
 

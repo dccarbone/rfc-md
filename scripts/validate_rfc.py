@@ -55,11 +55,28 @@ def changed_files_from_event() -> list[str]:
     if pull_request:
         base = pull_request["base"]["sha"]
         head = pull_request["head"]["sha"]
-        output = run_git(["diff", "--name-only", f"{base}...{head}"])
-        return [line for line in output.splitlines() if line]
+        output = run_git(["diff", "--name-status", f"{base}...{head}"])
+        return changed_files_from_name_status(output)
 
     output = run_git(["ls-files"])
     return [line for line in output.splitlines() if line]
+
+
+def changed_files_from_name_status(output: str) -> list[str]:
+    files = []
+    for line in output.splitlines():
+        if not line:
+            continue
+        parts = line.split("\t")
+        status = parts[0]
+        if status == "D":
+            continue
+        if status.startswith(("R", "C")) and len(parts) >= 3:
+            files.append(parts[2])
+            continue
+        if len(parts) >= 2:
+            files.append(parts[1])
+    return files
 
 
 def changed_rfc_files() -> list[str]:
@@ -234,13 +251,13 @@ def validate_pr_merge_gate(data: dict, required_approvers: list[str]) -> None:
     status = data.get("review_status")
     is_draft_pr = pull_request.get("draft", False)
 
-    if is_draft_pr and status == "draft":
-        return
+    if status == "draft":
+        if is_draft_pr:
+            return
+        raise ValidationError("draft RFC PRs must remain GitHub Draft PRs")
 
     if status != "closed":
-        raise ValidationError(
-            "non-draft RFC PRs are not merge-ready until review_status is closed"
-        )
+        return
 
     if is_draft_pr:
         raise ValidationError("closed RFCs must be marked ready for review before merge")

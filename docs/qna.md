@@ -105,7 +105,7 @@ rfcs/
     assets/
       .gitkeep
   2026/
-    architectural-decoupling-between-terminator-and-inspections-service/
+    service-boundary-example/
       rfc.md
       assets/
         optional-image.png
@@ -147,7 +147,7 @@ RFC folders should be slugs derived from the title:
 Good examples:
 
 ```txt
-rfcs/2026/architectural-decoupling-between-terminator-and-inspections-service/rfc.md
+rfcs/2026/service-boundary-example/rfc.md
 rfcs/2026/iam-authoritative-source/rfc.md
 rfcs/2026/one-app-experience/rfc.md
 ```
@@ -155,10 +155,10 @@ rfcs/2026/one-app-experience/rfc.md
 Bad examples:
 
 ```txt
-rfcs/2026/rfc-architectural-decoupling-between-terminator-and-inspections-service/rfc.md
-rfcs/2026/Architectural Decoupling between Terminator and inspections-service/rfc.md
+rfcs/2026/rfc-service-boundary-example/rfc.md
+rfcs/2026/Service Boundary Example/rfc.md
 rfcs/2026/iam_authoritative_source/rfc.md
-rfcs/2026/001-architectural-decoupling-between-terminator-and-inspections-service/rfc.md
+rfcs/2026/001-service-boundary-example/rfc.md
 ```
 
 ## 15a. What naming convention should RFC branches and PR titles use?
@@ -172,13 +172,13 @@ rfc/<slug>
 Example:
 
 ```txt
-rfc/architectural-decoupling-between-terminator-and-inspections-service
+rfc/service-boundary-example
 ```
 
 RFC PR titles should use:
 
 ```txt
-RFC: Architectural Decoupling between Terminator and inspections-service
+RFC: Service Boundary Example
 ```
 
 Prefer `RFC: <Title>` over `(rfc): <title>`. The `RFC:` prefix is easier to scan in GitHub PR lists and avoids mixing RFC workflow with commit-message conventions.
@@ -227,9 +227,9 @@ The minimum frontmatter should be:
 
 ```yaml
 ---
-Title: Architectural Decoupling between Terminator and inspections-service
+Title: Service Boundary Example
 review_status: draft
-design_review: tech_platform
+design_review: platform
 comments_until:
 review_until:
 required_approvers: []
@@ -380,8 +380,7 @@ The frontmatter lists required GitHub users:
 
 ```yaml
 required_approvers:
-  - ivancosta
-  - brunodiniz
+  - 1001Josias
 ```
 
 The GitHub PR review proves who approved, when they approved, and which version they approved.
@@ -529,6 +528,10 @@ GitHub uploads them as attachments and inserts URLs such as:
 
 For internal/private repositories, these attachments follow repository access. Only people with access to the repo can view them.
 
+Backstage image rendering still needs validation. Backstage may not be able to
+access GitHub attachment URLs, and it probably will not have permission to
+download private images by default.
+
 ## 48. Should `assets/` be required?
 
 No.
@@ -554,6 +557,10 @@ Use `assets/` when an image or diagram:
 - is part of a generated diagram workflow.
 
 For screenshots or lightweight illustrations, GitHub attachments are acceptable.
+
+For RFCs that must render reliably outside GitHub, prefer `assets/` or another
+image hosting path that the rendering surface can access. The exact Backstage
+approach is intentionally unresolved until the workflow is validated.
 
 ## 51. How should a new RFC be created?
 
