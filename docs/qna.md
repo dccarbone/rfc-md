@@ -10,7 +10,7 @@ The core goal is not "move from Google Docs to Markdown". The core goal is to st
 
 No.
 
-The current goal is to present the idea to engineering, validate whether the demand is real, and identify blockers. A pilot may be proposed later only if the feedback indicates that the problem is real and the proposed workflow is acceptable.
+This is a discovery proposal. The goal is to validate whether the demand exists and identify blockers before proposing a pilot.
 
 ## 3. What should be validated with engineering first?
 
@@ -23,19 +23,13 @@ The first validation should answer:
 - What blockers would make this workflow unviable?
 - Which future RFCs would be good candidates for a small pilot?
 
-## 4. What is the main framing for the presentation?
+## 4. What is the main framing?
 
-The proposal should be framed as a workflow hypothesis, not a migration.
+This is a workflow hypothesis, not a migration plan.
 
-Recommended framing:
+Main question:
 
 > Can we keep RFC authoring simple while making structure, history, approval, and publication more consistent?
-
-Avoid opening with:
-
-> We should migrate RFCs from Google Docs to Markdown.
-
-That framing invites a tool debate too early.
 
 ## 5. What is the strongest expected objection?
 
@@ -43,7 +37,7 @@ Collaboration.
 
 Google Docs is extremely good for easy comments, real-time editing, suggestions, and low-friction participation. The proposal must acknowledge this directly.
 
-Recommended answer:
+Working answer:
 
 > Google Docs is better for free-form collaboration. The question is whether, for engineering RFCs, GitHub PR comments are good enough in exchange for better structure, history, review traceability, and automation. If collaboration gets materially worse, the workflow should not be forced.
 
@@ -57,13 +51,13 @@ This matters because the workflow can be evaluated first against the actual audi
 
 No.
 
-If this becomes a pilot later, it should start with voluntary new RFCs only. It should not migrate legacy RFCs and should not force all teams into the workflow immediately.
+If a pilot happens later, it should start with voluntary new RFCs only. It should not migrate legacy RFCs and should not force all teams into the workflow immediately.
 
 ## 8. Should legacy Google Docs RFCs be migrated?
 
 No, not initially.
 
-Legacy migration should be explicitly out of scope. Migrating old documents before validating the workflow adds effort and risk without proving whether the new flow works.
+Legacy migration is not part of the initial scope. Migrating old documents before validating the workflow adds effort and risk without proving whether the new flow works.
 
 ## 9. Should Markdown be considered the final user experience?
 
@@ -372,7 +366,7 @@ No.
 
 It should have a minimum required core and expandable sections.
 
-Recommended framing:
+Principle:
 
 > We standardize the skeleton, not the reasoning.
 
@@ -398,7 +392,7 @@ Because that repeats a weakness of Google Docs: anyone with edit access can chan
 
 GitHub Review is a better approval source because it is tied to identity, timestamp, commit, and PR state.
 
-Recommended explanation:
+Approval rule:
 
 > The author controls the process status, but approvers prove approval through GitHub Review.
 
@@ -661,7 +655,7 @@ No.
 
 Bidirectional sync would create ambiguity and drift. There should be one source of truth at a time.
 
-Recommended rule:
+Source-of-truth rule:
 
 > If an RFC is converted to Google Docs and the team decides to continue there, Google Docs becomes the source of truth and the Markdown version becomes historical context or a snapshot.
 
@@ -671,7 +665,7 @@ Yes for the initial version.
 
 GitHub already renders Markdown, headings, tables, links, Mermaid diagrams, and images well enough for a first workflow.
 
-Backstage can improve discovery and presentation later.
+Backstage can improve discovery and rendering later.
 
 ## 62. What is the relationship between PR state and RFC state?
 
@@ -697,7 +691,7 @@ The smallest useful version is:
 - validation Action for objective checks;
 - Backstage deferred to read/index enhancement.
 
-## 64. What should be explicitly out of scope for now?
+## 64. What is out of scope for now?
 
 Out of scope:
 
@@ -713,9 +707,9 @@ Out of scope:
 - numbering RFCs;
 - validating unrelated folders or all historical RFCs.
 
-## 65. What are the main blockers to ask people about?
+## 65. What are the main blockers to validate?
 
-Ask specifically about:
+Main blockers:
 
 - loss of Google Docs-style collaboration;
 - difficulty reviewing in PRs;
@@ -727,9 +721,9 @@ Ask specifically about:
 - how post-acceptance changes should be handled;
 - whether Backstage publication matters for adoption.
 
-## 66. What should be the success signal before proposing a pilot?
+## 66. What evidence would justify a pilot?
 
-Before proposing a pilot, we should see evidence that:
+A pilot would make sense if:
 
 - engineering recognizes the current pain;
 - the minimum structure feels useful;
@@ -748,11 +742,11 @@ Potential signals:
 - validation caught real issues without becoming the main friction;
 - people would use the workflow again.
 
-## 68. What is the final concise proposal?
+## 68. What is the concise proposal?
 
-Recommended concise version:
+Concise version:
 
-> We want to validate whether RFCs can become more structured and easier to review by using a Markdown-first workflow in the engineering docs repo. Each RFC would be a single `rfc.md` under `rfcs/<year>/<slug>/`, with minimal frontmatter for status, deadlines, design review area, and GitHub approvers. Authors would still control the RFC status, but formal approval would come from GitHub Reviews. GitHub would handle comments and review, while Backstage could later provide indexing and a friendlier read surface. This is not a migration proposal yet; the current goal is to validate demand and blockers with engineering.
+> This proposal evaluates whether RFCs can become more structured and easier to review through a Markdown-first workflow in the engineering docs repo. Each RFC would be a single `rfc.md` under `rfcs/<year>/<slug>/`, with minimal frontmatter for status, deadlines, design review area, and GitHub approvers. Authors would still control the RFC status, but formal approval would come from GitHub Reviews. GitHub would handle comments and review, while Backstage could later provide indexing and a friendlier read surface. This is not a migration plan; it is a way to validate demand and blockers with engineering.
 
 ## 69. What is the key trade-off?
 
@@ -762,8 +756,8 @@ The key trade-off is:
 
 The open question is whether this trade-off is acceptable for engineering RFCs.
 
-## 70. What is the question to ask the room?
+## 70. What is the main discussion question?
 
-Recommended closing question:
+Main discussion question:
 
 > Would this workflow help us write and review RFCs with more clarity, or would the loss of Google Docs collaboration outweigh the gains in structure, history, and approval traceability?
