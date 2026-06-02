@@ -234,13 +234,13 @@ def validate_pr_merge_gate(data: dict, required_approvers: list[str]) -> None:
     status = data.get("review_status")
     is_draft_pr = pull_request.get("draft", False)
 
-    if is_draft_pr and status == "draft":
-        return
+    if status == "draft":
+        if is_draft_pr:
+            return
+        raise ValidationError("draft RFC PRs must remain GitHub Draft PRs")
 
     if status != "closed":
-        raise ValidationError(
-            "non-draft RFC PRs are not merge-ready until review_status is closed"
-        )
+        return
 
     if is_draft_pr:
         raise ValidationError("closed RFCs must be marked ready for review before merge")

@@ -1,6 +1,7 @@
 import importlib.util
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "scripts" / "validate_rfc.py"
@@ -28,6 +29,47 @@ required_approvers: []
         approvers = validate_rfc.validate_status_requirements(data, markdown)
 
         self.assertEqual(approvers, [])
+
+    def test_ready_pr_cannot_keep_draft_review_status(self):
+        with patch.object(
+            validate_rfc,
+            "event_payload",
+            return_value={"pull_request": {"draft": False}},
+        ):
+            with self.assertRaisesRegex(
+                validate_rfc.ValidationError,
+                "draft RFC PRs must remain GitHub Draft PRs",
+            ):
+                validate_rfc.validate_pr_merge_gate(
+                    {"review_status": "draft"},
+                    [],
+                )
+
+    def test_ready_pr_can_accept_comments(self):
+        with patch.object(
+            validate_rfc,
+            "event_payload",
+            return_value={"pull_request": {"draft": False}},
+        ):
+            validate_rfc.validate_pr_merge_gate(
+                {"review_status": "accepting_comments"},
+                [],
+            )
+
+    def test_closed_rfc_cannot_remain_draft_pr(self):
+        with patch.object(
+            validate_rfc,
+            "event_payload",
+            return_value={"pull_request": {"draft": True}},
+        ):
+            with self.assertRaisesRegex(
+                validate_rfc.ValidationError,
+                "closed RFCs must be marked ready for review before merge",
+            ):
+                validate_rfc.validate_pr_merge_gate(
+                    {"review_status": "closed"},
+                    [],
+                )
 
 
 if __name__ == "__main__":
