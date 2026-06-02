@@ -30,6 +30,25 @@ required_approvers: []
 
         self.assertEqual(approvers, [])
 
+    def test_changed_files_from_name_status_ignores_deleted_files(self):
+        output = "\n".join(
+            [
+                "D\trfcs/2026/old-example/rfc.md",
+                "A\trfcs/2026/new-example/rfc.md",
+                "M\tscripts/validate_rfc.py",
+                "R100\trfcs/2026/renamed-old/rfc.md\trfcs/2026/renamed-new/rfc.md",
+            ]
+        )
+
+        self.assertEqual(
+            validate_rfc.changed_files_from_name_status(output),
+            [
+                "rfcs/2026/new-example/rfc.md",
+                "scripts/validate_rfc.py",
+                "rfcs/2026/renamed-new/rfc.md",
+            ],
+        )
+
     def test_ready_pr_cannot_keep_draft_review_status(self):
         with patch.object(
             validate_rfc,

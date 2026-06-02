@@ -55,11 +55,28 @@ def changed_files_from_event() -> list[str]:
     if pull_request:
         base = pull_request["base"]["sha"]
         head = pull_request["head"]["sha"]
-        output = run_git(["diff", "--name-only", f"{base}...{head}"])
-        return [line for line in output.splitlines() if line]
+        output = run_git(["diff", "--name-status", f"{base}...{head}"])
+        return changed_files_from_name_status(output)
 
     output = run_git(["ls-files"])
     return [line for line in output.splitlines() if line]
+
+
+def changed_files_from_name_status(output: str) -> list[str]:
+    files = []
+    for line in output.splitlines():
+        if not line:
+            continue
+        parts = line.split("\t")
+        status = parts[0]
+        if status == "D":
+            continue
+        if status.startswith(("R", "C")) and len(parts) >= 3:
+            files.append(parts[2])
+            continue
+        if len(parts) >= 2:
+            files.append(parts[1])
+    return files
 
 
 def changed_rfc_files() -> list[str]:
